@@ -4,6 +4,7 @@ const LoginPage = () => {
     const [userEmail, setUserEmail] = useState<string>('');
     const [userPassword, setUserPassword] = useState<string>('');
 
+    //todo: Login Handler and styles
     const loginHandler = () => {
        console.log(userEmail);
        console.log(userPassword);
