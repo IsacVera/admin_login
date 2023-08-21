@@ -1,18 +1,24 @@
 import React, {useState, ChangeEvent} from 'react';
 
-const LoginPage = () => {
+interface loginPageProps {
+    onLogin(email:string, password:string):void;
+}
+
+const LoginPage = ({onLogin}: loginPageProps) => {
     const [attemptedLogin, setAttemptedLogin] = useState<boolean>(false);
     const [enteredEmail, setEnteredEmail] = useState<string>('');
     const [enteredPassword, setEnteredPassword] = useState<string>('');
 
-    const loginHandler = () => {
-        setAttemptedLogin(true);
+    const loginHandler = (): void => {
 
         if (isValid()) {
             setAttemptedLogin(false);
-            return true; 
-        } 
-        return false;
+            onLogin(enteredEmail, enteredPassword);
+        } else {
+            if (attemptedLogin === false) {
+                setAttemptedLogin(true);
+            }
+        }
     } 
 
     const emailHandler = (event: ChangeEvent<HTMLInputElement>): void => {
