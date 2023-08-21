@@ -1,7 +1,7 @@
 import React, {useState, ChangeEvent} from 'react';
 
 interface loginPageProps {
-    onLogin(email:string, password:string):void;
+    onLogin(email:string):void;
 }
 
 const LoginPage = ({onLogin}: loginPageProps) => {
@@ -13,7 +13,7 @@ const LoginPage = ({onLogin}: loginPageProps) => {
 
         if (isValid()) {
             setAttemptedLogin(false);
-            onLogin(enteredEmail, enteredPassword);
+            onLogin(enteredEmail);
         } else {
             if (attemptedLogin === false) {
                 setAttemptedLogin(true);

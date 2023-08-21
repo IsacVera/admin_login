@@ -1,20 +1,28 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import LoginPage from './components/LoginPage/LoginPage';
 
 import './App.css';
 
 function App() {
-    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+    const [isLoggedInState, setIsLoggedInState] = useState<boolean>(false);
 
-    const loginHandler = (email:string, password:string) => {
-        console.log(email);
-        console.log(password);
-        setIsLoggedIn(true);
-    }
+    useEffect(() => {
+        const loginCheck = localStorage.getItem('isLoggedIn');
+        if (loginCheck === '1'){
+            setIsLoggedInState(true);
+        }
+    }, []);
+
+    const loginHandler = (inputEmail:string) => {
+        localStorage.setItem('isLoggedIn', '1');
+        localStorage.setItem('email', inputEmail);
+
+        setIsLoggedInState(true);
+       }
 
     return (
         <div className="menu">
-            {isLoggedIn ? null:
+            {isLoggedInState ? <p>Hello World</p>:
             <LoginPage onLogin={loginHandler}/>
             }
 
