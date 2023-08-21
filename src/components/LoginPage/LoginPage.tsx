@@ -1,12 +1,16 @@
 import React, {useState, ChangeEvent} from 'react';
 
 const LoginPage = () => {
+    const [attemptedLogin, setAttemptedLogin] = useState<boolean>(false);
     const [enteredEmail, setEnteredEmail] = useState<string>('');
     const [enteredPassword, setEnteredPassword] = useState<string>('');
 
     const loginHandler = () => {
+        setAttemptedLogin(true);
+
         if (isValid()) {
-           return true; 
+            setAttemptedLogin(false);
+            return true; 
         } 
         return false;
     } 
@@ -34,7 +38,8 @@ const LoginPage = () => {
 
         <button onClick={loginHandler}>Login</button>
 
-        {loginHandler() ? <div>
+        {(!isValid() && attemptedLogin) ?
+        <div>
             <div>Invalid Input</div>
             <div>"Please enter a valid email address containing the '@' symbol,
              and ensure your password is at least 6 characters long."</div>
