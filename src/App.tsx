@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import LoginPage from './components/LoginPage/LoginPage';
+import AdminPage from './components/AdminPage/AdminPage';
 
 import './App.css';
 
@@ -22,7 +23,7 @@ function App() {
 
     return (
         <div className="menu">
-            {isLoggedInState ? <p>Hello World</p>:
+            {isLoggedInState ? <AdminPage/>: 
             <LoginPage onLogin={loginHandler}/>
             }
 
