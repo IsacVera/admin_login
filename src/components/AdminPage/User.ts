@@ -3,28 +3,22 @@ interface User {
     age: string
 }
 
-const newUser = (inputName: string, inputAge: string): User => {
-    return {
-        name: inputName,
-        age: inputAge
-    }
-}
-
-const defaultUserList: User[] = [
+const defaultUserList = [
     {
-        name: 'issac',
-        age: '32'
-    },
-    {
-        name: 'Martin',
+        name: 'Isaac',
         age: '23'
     },
     {
-        name: 'Aiden',
-        age: '19'
+        name: 'Yaya',
+        age: '18'
+    },
+    {
+        name: 'Martin',
+        age: '55'
     }
 ];
 
 
+
 export type {User};
-export {newUser, defaultUserList};
+export {defaultUserList};

@@ -1,6 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {User, newUser, defaultUserList} from './User';
-
+import React, {useState, useRef, useEffect} from 'react';
+import {User, defaultUserList} from './User';
 
 const AdminPage = () => {
     const [userList, setUserList] = useState<User[]>(defaultUserList); 
@@ -10,6 +9,11 @@ const AdminPage = () => {
 
     useEffect(() => {
         const timer = setTimeout(() => {
+            if (Number(inputAge) >= 18) {
+                setFormIsValid(true);
+            } else {
+                setFormIsValid(false);
+            }
         }, 500);
         
         /*return runs first before function above,
@@ -20,7 +24,7 @@ const AdminPage = () => {
             clearTimeout(timer);
         };
 
-    },[inputUser, inputAge])
+    },[inputAge])
 
     
     const inputUserHandler = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -28,19 +32,18 @@ const AdminPage = () => {
     }
 
     const inputAgeHandler = (event: React.ChangeEvent<HTMLInputElement>): void => {
-        const inputValue: string = event.target.value;
-        const birthday: Date = new Date(inputValue);
-        const currentDay: Date = new Date();
-
-        const timeDifference: number = currentDay.getTime() - birthday.getTime();
-        const miliSecInYear: number = 1000 * 60 * 60 * 24 * 365.25; //accounts for leap Years
-
-        const yearsDifference: number = timeDifference/miliSecInYear;
-        setInputAge(yearsDifference.toFixed());
+        setInputAge(event.target.value);
     }
 
     const addUserHandler = () => {
-        console.log(inputUser + ' ' );
+        if (formIsValid){
+            setUserList((prev) => {
+                return [...prev, {name: inputUser, age: inputAge}]
+            });
+            console.log(userList);
+        }
+
+        //add pop up message that user isnt old enough
     }
     
     return (
@@ -50,7 +53,7 @@ const AdminPage = () => {
             <h3>Username</h3>
             <input type={'text'} value={inputUser} onChange={inputUserHandler}/>
             <h3>Age (Years)</h3>
-            <input type={'date'} value={inputAge} onChange={inputAgeHandler}/>
+            <input type={'number'} value={inputAge} onChange={inputAgeHandler}/>
 
             <button onClick={addUserHandler}>Add User</button>
         </div> 
