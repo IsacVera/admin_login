@@ -6,10 +6,8 @@ interface UsersDisplayProps {
 }
 
 const UsersDisplay = ({userList}: UsersDisplayProps) => {
-    const helloworld = () => {
-    }
-    helloworld()
 
+    //make functionality to delete code
     return (
     <ul>
         {userList.map((user, index) => (
