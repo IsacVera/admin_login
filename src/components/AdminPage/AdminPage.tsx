@@ -1,5 +1,7 @@
 import React, {useState, useRef, useEffect} from 'react';
+import UsersList from './UsersDisplay';
 import {User, defaultUserList} from './User';
+import UsersDisplay from './UsersDisplay';
 
 const AdminPage = () => {
     const [userList, setUserList] = useState<User[]>(defaultUserList); 
@@ -58,6 +60,7 @@ const AdminPage = () => {
             <button onClick={addUserHandler}>Add User</button>
         </div> 
         
+        <UsersDisplay userList={userList}/>
 
     </React.Fragment>)
 }
