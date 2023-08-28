@@ -3,15 +3,21 @@ import {User} from './User';
 
 interface UsersDisplayProps {
     userList: User[];
+    deleteUser(nameToDelete: string, ageToDelete: string): void;
 }
 
-const UsersDisplay = ({userList}: UsersDisplayProps) => {
+const UsersDisplay = ({userList, deleteUser}: UsersDisplayProps) => {
 
     //make functionality to delete code
     return (
     <ul>
         {userList.map((user, index) => (
-            <li key={index}>{user.name} ({user.age} years old)</li>
+            <li 
+                key={index} 
+                onClick={() => {deleteUser(user.name, user.age)}}
+            >
+                {user.name} ({user.age} years old)
+            </li>
         ))}
     </ul>)
 };

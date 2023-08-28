@@ -42,10 +42,17 @@ const AdminPage = () => {
             setUserList((prev) => {
                 return [...prev, {name: inputUser, age: inputAge}]
             });
-            console.log(userList);
         }
 
         //add pop up message that user isnt old enough
+    }
+
+    const deleteUserHandler = (index: number) => {
+        const deleted = delete userList[index];
+        if (deleted) {
+            const userDeletedList = userList
+            setUserList(userDeletedList); 
+        }
     }
     
     return (
@@ -60,7 +67,7 @@ const AdminPage = () => {
             <button onClick={addUserHandler}>Add User</button>
         </div> 
         
-        <UsersDisplay userList={userList}/>
+        <UsersDisplay userList={userList} deleteUser={deleteUserHandler}/>
 
     </React.Fragment>)
 }
