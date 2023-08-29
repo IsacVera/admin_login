@@ -48,11 +48,9 @@ const AdminPage = () => {
     }
 
     const deleteUserHandler = (index: number) => {
-        const deleted = delete userList[index];
-        if (deleted) {
-            const userDeletedList = userList
-            setUserList(userDeletedList); 
-        }
+        let userDeletedList = [...userList];
+        userDeletedList.splice(index, 1);
+        setUserList(userDeletedList); 
     }
     
     return (
