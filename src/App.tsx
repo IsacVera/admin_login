@@ -19,16 +19,16 @@ function App() {
         localStorage.setItem('email', inputEmail);
 
         setIsLoggedInState(true);
-       }
+   }
 
     return (
         <div className="menu">
-            {isLoggedInState ? <AdminPage/>: 
+            {isLoggedInState ? <AdminPage/>:
             <LoginPage onLogin={loginHandler}/>
             }
 
         </div>
-);
+    );
 }
 
 export default App;
