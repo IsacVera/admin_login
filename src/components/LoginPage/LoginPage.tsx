@@ -1,4 +1,5 @@
 import React, {useState, ChangeEvent} from 'react';
+import Card from '../UI/Card';
 
 interface loginPageProps {
     onLogin(email:string):void;
@@ -35,7 +36,7 @@ const LoginPage = ({onLogin}: loginPageProps) => {
 
 
     return (
-    <div>
+    <Card>
         <h2>Admin Login</h2>
         <h3>Email</h3>
         <input type={'text'} value={enteredEmail} onChange={emailHandler}/>
@@ -50,7 +51,7 @@ const LoginPage = ({onLogin}: loginPageProps) => {
             <div>"Please enter a valid email address containing the '@' symbol,
              and ensure your password is at least 6 characters long."</div>
         </div>: null}
-    </div>)
+    </Card>)
 }
 
 export default LoginPage;

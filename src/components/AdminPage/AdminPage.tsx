@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {User, defaultUserList} from './User';
 import UsersDisplay from './UsersDisplay';
 
@@ -22,10 +22,10 @@ const AdminPage = ({onLogout}: AdminPageProps) => {
             }
         }, 500);
         
-        /*return runs first before function above,
-         * but only after useEffect has ran once. 
-         * It is for debouncing (clearing the previous timer
-         * so there is only one going at a time)*/
+        /* return runs first before function above, but only after
+            useEffect has ran once. 
+         * It is for debouncing (clearing the previous timer so there
+            is only one going at a time)*/
         return () => {
             clearTimeout(timer);
         };
