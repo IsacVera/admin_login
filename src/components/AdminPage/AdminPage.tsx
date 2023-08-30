@@ -1,13 +1,17 @@
 import React, {useState, useRef, useEffect} from 'react';
-import UsersList from './UsersDisplay';
 import {User, defaultUserList} from './User';
 import UsersDisplay from './UsersDisplay';
 
-const AdminPage = () => {
+interface AdminPageProps {
+    onLogout(): void;
+}
+
+const AdminPage = ({onLogout}: AdminPageProps) => {
     const [userList, setUserList] = useState<User[]>(defaultUserList); 
     const [inputUser, setInputUser] = useState<string>('');
     const [inputAge, setInputAge] = useState<string>('');
     const [formIsValid, setFormIsValid] = useState<boolean>(false);
+    const adminEmail = localStorage.getItem('email');
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -56,7 +60,10 @@ const AdminPage = () => {
     return (
     <React.Fragment>
         <div>
-            <h2>User Creator</h2>
+            <div>
+                <h2>User Creator</h2>
+                <button onClick={onLogout}>{adminEmail}</button>
+            </div>
             <h3>Username</h3>
             <input type={'text'} value={inputUser} onChange={inputUserHandler}/>
             <h3>Age (Years)</h3>
