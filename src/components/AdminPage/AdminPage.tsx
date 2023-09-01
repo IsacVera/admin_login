@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {User, defaultUserList} from './User';
 import UsersDisplay from './UsersDisplay';
 
+import Card from '../UI/Card';
+
 interface AdminPageProps {
     onLogout(): void;
 }
@@ -59,7 +61,7 @@ const AdminPage = ({onLogout}: AdminPageProps) => {
     
     return (
     <React.Fragment>
-        <div>
+        <Card>
             <div>
                 <h2>User Creator</h2>
                 <button onClick={onLogout}>{adminEmail}</button>
@@ -70,7 +72,7 @@ const AdminPage = ({onLogout}: AdminPageProps) => {
             <input type={'number'} value={inputAge} onChange={inputAgeHandler}/>
 
             <button onClick={addUserHandler}>Add User</button>
-        </div> 
+        </Card> 
         
         <UsersDisplay userList={userList} deleteUser={deleteUserHandler}/>
 
