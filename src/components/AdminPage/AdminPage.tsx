@@ -3,6 +3,7 @@ import {User, defaultUserList} from './User';
 import UsersDisplay from './UsersDisplay';
 
 import Card from '../UI/Card';
+import './AdminPage.scss';
 
 interface AdminPageProps {
     onLogout(): void;
@@ -62,7 +63,7 @@ const AdminPage = ({onLogout}: AdminPageProps) => {
     return (
     <React.Fragment>
         <Card>
-            <div>
+            <div className='header'>
                 <h2>User Creator</h2>
                 <button onClick={onLogout}>{adminEmail}</button>
             </div>
