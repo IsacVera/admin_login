@@ -70,9 +70,10 @@ const AdminPage = ({onLogout}: AdminPageProps) => {
             <h3 className='subTitle'>Username</h3>
             <input className='input' type={'text'} value={inputUser} onChange={inputUserHandler}/>
             <h3 className='subTitle'>Age (Years)</h3>
-            <input className='input' type={'number'} value={inputAge} onChange={inputAgeHandler}/>
-
-            <button className='button addUser' onClick={addUserHandler}>Add User</button>
+            <div className='bottomLine'>
+                <input className='input' type={'number'} value={inputAge} onChange={inputAgeHandler}/>
+                <button className='button' onClick={addUserHandler}>Add User</button>
+            </div>
         </Card> 
         
         <UsersDisplay userList={userList} deleteUser={deleteUserHandler}/>

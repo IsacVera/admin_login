@@ -1,5 +1,5 @@
 $buttonColor: #380647;
-$borderColor: #A58BAB;
+$borderColor: #380647;
 
 .header {
     display: flex;
@@ -19,9 +19,9 @@ $borderColor: #A58BAB;
 
 .input {
     height: 1.5rem;
-    width: 10rem;
-    border-top: 200rem;
-    border-color: black;
+    border: 1px solid;
+    border-color: $borderColor;
+    border-radius: 5px;
 }
 
 .button {
@@ -35,6 +35,20 @@ $borderColor: #A58BAB;
     overflow: hidden;
 }
 
-.addUser {
-    margin-left: 10rem;
+.bottomLine {
+    display: flex;
+    justify-content: space-between;
 }
+
+@media screen and (max-width: 550px) {
+    .input {
+        width: 17rem;
+    }
+}
+
+@media screen and (min-width: 551px) {
+    .input {
+        width: 25rem;
+    }
+}
+
