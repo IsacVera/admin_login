@@ -64,15 +64,15 @@ const AdminPage = ({onLogout}: AdminPageProps) => {
     <React.Fragment>
         <Card>
             <div className='header'>
-                <h2>User Creator</h2>
-                <button onClick={onLogout}>{adminEmail}</button>
+                <h2 className='title'>User Creator</h2>
+                <button className='button' onClick={onLogout}>{adminEmail}</button>
             </div>
-            <h3>Username</h3>
-            <input type={'text'} value={inputUser} onChange={inputUserHandler}/>
-            <h3>Age (Years)</h3>
-            <input type={'number'} value={inputAge} onChange={inputAgeHandler}/>
+            <h3 className='subTitle'>Username</h3>
+            <input className='input' type={'text'} value={inputUser} onChange={inputUserHandler}/>
+            <h3 className='subTitle'>Age (Years)</h3>
+            <input className='input' type={'number'} value={inputAge} onChange={inputAgeHandler}/>
 
-            <button onClick={addUserHandler}>Add User</button>
+            <button className='button addUser' onClick={addUserHandler}>Add User</button>
         </Card> 
         
         <UsersDisplay userList={userList} deleteUser={deleteUserHandler}/>
