@@ -2,6 +2,7 @@ import React from 'react';
 import {User} from './User';
 
 import Card from '../UI/Card';
+import './UsersDisplay.scss'
 
 interface UsersDisplayProps {
     userList: User[];
@@ -13,9 +14,10 @@ const UsersDisplay = ({userList, deleteUser}: UsersDisplayProps) => {
     //make functionality to delete code
     return (
     <Card> 
-        <ul>
+        <ul className='usersList'>
             {userList.map((user, index) => (
-                <li 
+                <li
+                    className='user'
                     key={index} 
                     onClick={() => {deleteUser(index)}}
                 >
