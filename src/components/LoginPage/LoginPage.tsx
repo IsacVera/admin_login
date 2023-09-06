@@ -1,5 +1,7 @@
 import React, {useState, ChangeEvent} from 'react';
+
 import Card from '../UI/Card';
+import './LoginPage.scss';
 
 interface loginPageProps {
     onLogin(email:string):void;
@@ -37,13 +39,14 @@ const LoginPage = ({onLogin}: loginPageProps) => {
 
     return (
     <Card>
-        <h2>Admin Login</h2>
+        <h2 className='loginPageHeader'>Admin Login</h2>
         <h3>Email</h3>
-        <input type={'text'} value={enteredEmail} onChange={emailHandler}/>
+        <input className='input' type={'text'} value={enteredEmail} onChange={emailHandler}/>
         <h3>Password</h3>
-        <input type={'text'} value={enteredPassword} onChange={passwordHandler}/>
-
-        <button onClick={loginHandler}>Login</button>
+        <div className='bottomLine'>
+            <input className='input' type={'text'} value={enteredPassword} onChange={passwordHandler}/>
+            <button className='button' onClick={loginHandler}>Login</button>
+        </div>
 
         {(!isValid() && attemptedLogin) ?
         <div>

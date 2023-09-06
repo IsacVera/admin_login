@@ -1,0 +1,29 @@
+$buttonColor: #380647;
+$borderColor: #380647;
+
+.loginPageHeader {
+    text-align: center;
+}
+
+.input {
+    height: 1.5rem;
+    border: 1px solid;
+    border-color: $borderColor;
+    border-radius: 5px;
+}
+
+.button {
+    background-color: $buttonColor;
+    color: white;
+    border: 1px;
+    border-radius: 2px;
+    border-color: $borderColor;
+    height: 1.5rem;
+    max-width: 10rem;
+    overflow: hidden;
+}
+
+.bottomLine {
+    display: flex;
+    justify-content: space-between;
+}
