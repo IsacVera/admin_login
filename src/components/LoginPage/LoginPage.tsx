@@ -49,7 +49,7 @@ const LoginPage = ({onLogin}: loginPageProps) => {
         </div>
 
         {(!isValid() && attemptedLogin) ?
-        <div>
+        <div className={styles.invalid}>
             <h4>Invalid Input</h4>
             <p>Please enter a valid email address containing the '@' symbol,
              and ensure your password is at least 6 characters long.</p>

@@ -27,3 +27,9 @@ $borderColor: #380647;
     display: flex;
     justify-content: space-between;
 }
+
+.invalid {
+    background-color: #f13401;
+    color: white;
+    padding: 5px;
+}
