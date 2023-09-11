@@ -29,7 +29,26 @@ $borderColor: #380647;
 }
 
 .invalid {
+    opacity: 100;
     background-color: #f13401;
     color: white;
-    padding: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 10px;
+    margin: 1.5rem 1.5rem;
+    padding: 1rem;
+    padding-top: .5rem;
+    transition: opacity 1s ease-in;
 }
+
+@media screen and (max-width: 550px) {
+    .input {
+        width: 17rem;
+    }
+}
+
+@media screen and (min-width: 551px) {
+    .input {
+        width: 25rem;
+    }
+}
+
