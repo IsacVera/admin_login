@@ -14,6 +14,7 @@ const AdminPage = ({onLogout}: AdminPageProps) => {
     const [inputUser, setInputUser] = useState<string>('');
     const [inputAge, setInputAge] = useState<string>('');
     const [formIsValid, setFormIsValid] = useState<boolean>(false);
+    const [error, setError] = useState<boolean>(false);
     const adminEmail = localStorage.getItem('email');
 
     useEffect(() => {
@@ -22,6 +23,7 @@ const AdminPage = ({onLogout}: AdminPageProps) => {
                 setFormIsValid(true);
             } else {
                 setFormIsValid(false);
+                setError(true);
             }
         }, 500);
         
@@ -58,6 +60,10 @@ const AdminPage = ({onLogout}: AdminPageProps) => {
         let userDeletedList = [...userList];
         userDeletedList.splice(index, 1);
         setUserList(userDeletedList); 
+    }
+
+    const errorHandler = () => {
+        setError(false);
     }
     
     return (
