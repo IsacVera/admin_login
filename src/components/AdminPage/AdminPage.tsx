@@ -68,6 +68,19 @@ const AdminPage = ({onLogout}: AdminPageProps) => {
     
     return (
     <React.Fragment>
+       {error ?
+            <div>
+                <div/>
+                <Card>
+                    <header>
+                        <h2>Invalid Age</h2>
+                    </header>
+                    <p>Please enter a valid age {`( > 17)`}</p>
+                </Card>
+            </div>
+            : null
+        }
+
         <Card>
             <div className='header'>
                 <h2 className='title'>User Creator</h2>
