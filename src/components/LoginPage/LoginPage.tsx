@@ -38,7 +38,7 @@ const LoginPage = ({onLogin}: loginPageProps) => {
 
 
     return (
-    <Card>
+    <Card cardType='card'>
         <h2 className={styles.title}>Admin Login</h2>
         <h3>Email</h3>
         <input className={styles.input} type={'text'} value={enteredEmail} onChange={emailHandler}/>

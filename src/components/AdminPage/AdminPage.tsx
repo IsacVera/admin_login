@@ -23,7 +23,6 @@ const AdminPage = ({onLogout}: AdminPageProps) => {
                 setFormIsValid(true);
             } else {
                 setFormIsValid(false);
-                setError(true);
             }
         }, 500);
         
@@ -47,10 +46,13 @@ const AdminPage = ({onLogout}: AdminPageProps) => {
     }
 
     const addUserHandler = () => {
+        setError(false);
         if (formIsValid){
             setUserList((prev) => {
                 return [...prev, {name: inputUser, age: inputAge}]
             });
+        } else {
+            setError(true);
         }
 
         //TODO: add pop up message that user isnt old enough
@@ -65,23 +67,11 @@ const AdminPage = ({onLogout}: AdminPageProps) => {
     const errorHandler = () => {
         setError(false);
     }
-    
+
     return (
     <React.Fragment>
-       {error ?
-            <div>
-                <div/>
-                <Card>
-                    <header>
-                        <h2>Invalid Age</h2>
-                    </header>
-                    <p>Please enter a valid age {`( > 17)`}</p>
-                </Card>
-            </div>
-            : null
-        }
-
-        <Card>
+       
+        <Card cardType='card'>
             <div className='header'>
                 <h2 className='title'>User Creator</h2>
                 <button className='button' onClick={onLogout}>{adminEmail}</button>
@@ -93,6 +83,18 @@ const AdminPage = ({onLogout}: AdminPageProps) => {
                 <input className='input' type={'number'} value={inputAge} onChange={inputAgeHandler}/>
                 <button className='button' onClick={addUserHandler}>Add User</button>
             </div>
+
+            {error ?
+            <div onClick={errorHandler}>
+                <div className='backdrop'/>
+                <Card cardType='card-invalid'>
+                    <header>
+                        <h2 className='errorTitle'>Invalid Age</h2>
+                    </header>
+                    <p>Please enter a valid age {`( > 17)`}</p>
+                </Card>
+            </div>
+            : null}
         </Card> 
         
         <UsersDisplay userList={userList} deleteUser={deleteUserHandler}/>

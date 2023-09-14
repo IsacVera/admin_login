@@ -13,7 +13,7 @@ const UsersDisplay = ({userList, deleteUser}: UsersDisplayProps) => {
 
     //make functionality to delete code
     return (
-    <Card> 
+    <Card cardType='card'> 
         <ul className='usersList'>
             {userList.map((user, index) => (
                 <li

@@ -6,3 +6,15 @@
     max-width: 600px;
     padding: 10px;
 }
+
+.card-invalid {
+    @extend .card;
+    z-index: 100;
+    position: fixed;
+    background-color: #f13401;
+    color: white;
+    margin: 2rem 10rem;
+    padding: 20px 5rem;
+    transition: opacity 1s ease-in;
+}
+
