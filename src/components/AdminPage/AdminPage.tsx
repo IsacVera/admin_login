@@ -54,8 +54,6 @@ const AdminPage = ({onLogout}: AdminPageProps) => {
         } else {
             setError(true);
         }
-
-        //TODO: add pop up message that user isnt old enough
     }
 
     const deleteUserHandler = (index: number) => {
